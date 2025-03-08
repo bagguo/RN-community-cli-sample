@@ -8,6 +8,8 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="28"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme">
 
@@ -24,5 +26,6 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
     </application>
 </manifest>

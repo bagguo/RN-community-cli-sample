@@ -105,7 +105,8 @@ android {
 
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
-    implementation("com.facebook.react:react-android")
+//    implementation("com.facebook.react:react-android") // rn自动会匹配版本，应该不需要自己指定版本
+    implementation("com.facebook.react:react-android:0.72.6")
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
