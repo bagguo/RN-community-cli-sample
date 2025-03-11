@@ -1,32 +1,29 @@
 package com.testapp726;
 
-import com.facebook.react.ReactActivity;
-import com.facebook.react.ReactActivityDelegate;
-import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint;
-import com.facebook.react.defaults.DefaultReactActivityDelegate;
+import android.os.Bundle;
 
-public class MainActivity extends ReactActivity {
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-    /**
-     * Returns the name of the main component registered from JavaScript. This is used to schedule
-     * rendering of the component.
-     */
+public class MainActivity extends AppCompatActivity {
+
     @Override
-    protected String getMainComponentName() {
-        return "TestApp726";
-    }
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-    /**
-     * Returns the instance of the {@link ReactActivityDelegate}. Here we use a util class {@link
-     * DefaultReactActivityDelegate} which allows you to easily enable Fabric and Concurrent React
-     * (aka React 18) with two boolean flags.
-     */
-    @Override
-    protected ReactActivityDelegate createReactActivityDelegate() {
-        return new DefaultReactActivityDelegate(
-                this,
-                getMainComponentName(),
-                // If you opted-in for the New Architecture, we enable the Fabric Renderer.
-                DefaultNewArchitectureEntryPoint.getFabricEnabled());
+        findViewById(R.id.btn_extend_react_activity).setOnClickListener(v ->
+                ExtendReactActivity.launch(this)
+        );
+
+        findViewById(R.id.btn_extend_react_activity2).setOnClickListener(v ->
+                ExtendReactActivity2.launch(this)
+        );
+
+        findViewById(R.id.btn_my_react_activity).setOnClickListener(v ->
+                MyReactActivity.launch(this)
+        );
+
+        findViewById(R.id.btn_rn_fragment);
     }
 }

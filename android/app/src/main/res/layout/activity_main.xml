@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_extend_react_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Extend react activity"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_extend_react_activity2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Extend react activity2"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_my_react_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My react activity"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_rn_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="集成到fragment"
+        android:textAllCaps="false" />
+</LinearLayout>
