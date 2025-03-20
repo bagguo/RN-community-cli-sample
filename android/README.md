@@ -11,3 +11,15 @@ npx @react-native-community/cli@latest init TestApp
 生成项目后，cd TestApp，run:
 npx react-native run-android
 ```
+# 原理
+## 核心组件：ReactRootView
+
+在应用中添加一个ReactRootView。这个ReactRootView正是用来承载你的 React Native 组件的容器
+
+我们还需要添加一些原生代码来启动 React Native 的运行时环境并让它开始渲染。首先需要在一个Activity中创建一个ReactRootView对象，
+然后在这个对象之中启动 React Native 应用，并将它设为界面的主视图
+
+## ReactInstanceManager
+一个ReactInstanceManager可以在多个 activities 或 fragments 间共享。你将需要创建自己的ReactFragment或ReactActivity，
+并拥有一个保存ReactInstanceManager的单例持有者。当你需要ReactInstanceManager（例如，将ReactInstanceManager连接到这些 
+Activities 或 Fragments 的生命周期）时，请使用单例提供的那个。

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.KeyEvent;
 
+import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactPackage;
@@ -21,8 +22,6 @@ import java.util.List;
 /**
  * @author Darren.eth
  * @title 将全屏 React Native 应用程序作为 Activity 集成到现有 Android 应用程序中
- *
- * TODO: 2025/3/11 从官网拷贝的api，暂未调通
  */
 public class MyReactActivity extends Activity implements DefaultHardwareBackBtnHandler {
 
@@ -41,7 +40,6 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SoLoader.init(this, false);
 
         mReactRootView = new ReactRootView(this);
         List<ReactPackage> packages = new PackageList(getApplication()).getPackages();
@@ -50,6 +48,7 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
         // 同时需要手动把他们添加到`settings.gradle`和 `app/build.gradle`配置文件中。
 
         mReactInstanceManager = ReactInstanceManager.builder()
+                .setJavaScriptExecutorFactory(new HermesExecutorFactory()) // 解决java.lang.NoClassDefFoundError: com.facebook.react.jscexecutor.JSCExecutor报错
                 .setApplication(getApplication())
                 .setCurrentActivity(this)
                 .setBundleAssetName("index.android.bundle")

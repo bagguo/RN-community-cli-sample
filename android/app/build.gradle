@@ -120,4 +120,5 @@ dependencies {
     }
 }
 
+// 启用原生模块的自动链接
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
