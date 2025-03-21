@@ -42,21 +42,7 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
         super.onCreate(savedInstanceState);
 
         mReactRootView = new ReactRootView(this);
-        List<ReactPackage> packages = new PackageList(getApplication()).getPackages();
-        // 有一些第三方可能不能自动链接，对于这些包我们可以用下面的方式手动添加进来：
-        // packages.add(new MyReactNativePackage());
-        // 同时需要手动把他们添加到`settings.gradle`和 `app/build.gradle`配置文件中。
-
-        mReactInstanceManager = ReactInstanceManager.builder()
-                .setJavaScriptExecutorFactory(new HermesExecutorFactory()) // 解决java.lang.NoClassDefFoundError: com.facebook.react.jscexecutor.JSCExecutor报错
-                .setApplication(getApplication())
-                .setCurrentActivity(this)
-                .setBundleAssetName("index.android.bundle")
-                .setJSMainModulePath("index")
-                .addPackages(packages)
-                .setUseDeveloperSupport(BuildConfig.DEBUG)
-                .setInitialLifecycleState(LifecycleState.RESUMED)
-                .build();
+        setReactInstanceManager();
 
         // 注意这里的MyReactNativeApp 必须对应"index.js"中的
         // "AppRegistry.registerComponent()"的第一个参数
@@ -64,9 +50,28 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
         mReactRootView.startReactApplication(mReactInstanceManager, MY_MODULE_NAME, null);
 
         setContentView(mReactRootView);
-
-
         requestOverlayPermission();
+    }
+
+    private void setReactInstanceManager() {
+        // 获取ReactInstanceManager的2种方式：1.从ReactNativeHost获取 2.像ReactNativeHost源码中一样自行build
+        mReactInstanceManager = MainApplication.instance.getReactNativeHost().getReactInstanceManager();
+
+        // List<ReactPackage> packages = new PackageList(getApplication()).getPackages();
+        // 有一些第三方可能不能自动链接，对于这些包我们可以用下面的方式手动添加进来：
+        // packages.add(new MyReactNativePackage());
+        // 同时需要手动把他们添加到`settings.gradle`和 `app/build.gradle`配置文件中。
+
+//                mReactInstanceManager = ReactInstanceManager.builder()
+//                .setJavaScriptExecutorFactory(new HermesExecutorFactory()) // 解决java.lang.NoClassDefFoundError: com.facebook.react.jscexecutor.JSCExecutor报错
+//                .setApplication(getApplication())
+//                .setCurrentActivity(this)
+//                .setBundleAssetName("index.android.bundle")
+//                .setJSMainModulePath("index")
+//                .addPackages(packages)
+//                .setUseDeveloperSupport(BuildConfig.DEBUG)
+//                .setInitialLifecycleState(LifecycleState.RESUMED)
+//                .build();
     }
 
     @Override
