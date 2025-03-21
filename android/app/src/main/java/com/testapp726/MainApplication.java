@@ -17,6 +17,8 @@ public class MainApplication extends Application implements ReactApplication {
 
     public static MainApplication instance;
 
+    public static final String MY_MODULE_NAME = "TestApp726";
+
     private final ReactNativeHost mReactNativeHost = new DefaultReactNativeHost(this) {
         @Override
         public boolean getUseDeveloperSupport() {

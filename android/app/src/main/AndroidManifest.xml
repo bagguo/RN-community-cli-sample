@@ -15,6 +15,11 @@
         tools:targetApi="28">
 
         <activity
+            android:name=".MyReactActivity2"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
+        <activity
             android:name=".MyReactActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

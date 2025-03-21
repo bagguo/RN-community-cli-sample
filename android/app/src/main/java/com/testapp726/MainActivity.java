@@ -24,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
                 MyReactActivity.launch(this)
         );
 
+        findViewById(R.id.btn_my_react_activity2).setOnClickListener(v ->
+                MyReactActivity2.launch(MainActivity.this)
+        );
+
         findViewById(R.id.btn_rn_fragment);
     }
 }

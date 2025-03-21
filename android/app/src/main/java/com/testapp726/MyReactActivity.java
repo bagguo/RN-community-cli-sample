@@ -1,5 +1,7 @@
 package com.testapp726;
 
+import static com.testapp726.MainApplication.MY_MODULE_NAME;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -8,16 +10,9 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.KeyEvent;
 
-import com.facebook.hermes.reactexecutor.HermesExecutorFactory;
-import com.facebook.react.PackageList;
 import com.facebook.react.ReactInstanceManager;
-import com.facebook.react.ReactPackage;
 import com.facebook.react.ReactRootView;
-import com.facebook.react.common.LifecycleState;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
-import com.facebook.soloader.SoLoader;
-
-import java.util.List;
 
 /**
  * @author Darren.eth
@@ -32,7 +27,6 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
     private static final String TAG = "MyReactActivity";
     private final int OVERLAY_PERMISSION_REQ_CODE = 1;  // 任写一个值
 
-    private final String MY_MODULE_NAME = "TestApp726";
 
     private ReactRootView mReactRootView;
     private ReactInstanceManager mReactInstanceManager;
