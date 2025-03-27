@@ -104,6 +104,8 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.window:window:1.3.0' // 引入不奔溃
+
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")// rn自动会匹配版本，React Native Gradle 插件会处理它
 
